@@ -13,39 +13,34 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 
-private lateinit var password: String
 private lateinit var userName: String
 private lateinit var etUsername: EditText
 private lateinit var etPassword: EditText
+private lateinit var etButton: Button
+private lateinit var tvLoginLink: TextView
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        var etButton: Button
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         etUsername = findViewById(R.id.etRUserName) as EditText
         etPassword = findViewById(R.id.etRPassword) as EditText
+        tvLoginLink = findViewById<TextView>(R.id.tvLoginLink) as TextView
 
-
-        this.findViewById<TextView>(R.id.tvLoginLink).setOnClickListener{
+        tvLoginLink.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
         etButton = findViewById<Button>(R.id.btnRegister)
-
 
         etButton.setOnClickListener {
             registerUser()
 //            userName = etUsername.text.toString();
 //            Toast.makeText(this, "Welcome: " + userName, Toast.LENGTH_SHORT).show();
         }
-
-
     }
-
 
     private fun registerUser() {
         val userName: String = etUsername.getText().toString().trim()
@@ -80,7 +75,6 @@ class RegisterActivity : AppCompatActivity() {
                     Toast.makeText(this@RegisterActivity, "User already exists!", Toast.LENGTH_LONG)
                         .show()
                 }
-
             }
 
             override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
