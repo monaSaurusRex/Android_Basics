@@ -18,6 +18,8 @@ private lateinit var userName: String
 private lateinit var etUsername: EditText
 private lateinit var etPassword: EditText
 private lateinit var etButton: Button
+private lateinit var tvRegisterLink: TextView
+
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +28,11 @@ class LoginActivity : AppCompatActivity() {
         etUsername = findViewById(R.id.etLUserName)
         etPassword = findViewById(R.id.etLPassword)
         etButton = findViewById(R.id.btnLogin)
+        tvRegisterLink = findViewById<TextView>(R.id.tvRegisterLink) as TextView
 
-//        this.findViewById<TextView>(R.id.tvLoginLink).setOnClickListener{
-//            startActivity(Intent(this, RegisterActivity::class.java))
-//        }
+        tvRegisterLink.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
 
         etButton.setOnClickListener {
             login(etUsername, etPassword);
@@ -76,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this@LoginActivity, "User does not exists!", Toast.LENGTH_LONG)
                         .show()
-                    startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+//                    startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
                 }
             }
             override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
