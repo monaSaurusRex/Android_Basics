@@ -15,7 +15,7 @@ class SplashScreenActivity : AppCompatActivity() {
         ivloginIcon = findViewById(R.id.iv_loginIcon)
 
         ivloginIcon.alpha =0f
-        ivloginIcon.animate().setDuration(1500).alpha(1f).withEndAction {
+        ivloginIcon.animate().setDuration(2000).alpha(1f).withEndAction {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)

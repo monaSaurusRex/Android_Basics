@@ -6,8 +6,8 @@ import android.widget.TextView
 
 class DashboardActivity : AppCompatActivity() {
 
-    lateinit var welcomeText: String;
-    lateinit var tvWelcome: TextView
+    private lateinit var welcomeText: String
+    private lateinit var tvWelcome: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
